@@ -1,0 +1,31 @@
+[project]
+name = "datagenerator"
+version = "0.1.0"
+description = "Synthetic Data Generator for databases"
+requires-python = ">=3.10"
+dependencies = [
+    "PyQt6>=6.6.0",
+    "SQLAlchemy>=2.0.0",
+    "Faker>=22.0.0",
+    "rstr>=3.2.0",
+    "psycopg2-binary>=2.9.9",
+    "mysql-connector-python>=8.2.0",
+    "PyYAML>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4.0", "pytest-qt>=4.2.0"]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["datagenerator*", "core*", "generator*", "ui*", "utils*"]
+
+[tool.setuptools]
+py-modules = ["config", "main", "run"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
